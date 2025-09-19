@@ -1,0 +1,1 @@
+web: gunicorn galaxy-uz.shop.wsgi
