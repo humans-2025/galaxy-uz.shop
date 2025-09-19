@@ -1,0 +1,11 @@
+<!-- templates/users/profile.html -->
+{% extends "base.html" %}
+{% block content %}
+<div class="profile-box">
+    <h2>👤 Mening sahifam</h2>
+    <p><strong>Foydalanuvchi:</strong> {{ user.username }}</p>
+    <p><strong>Ism:</strong> {{ user.first_name }} {{ user.last_name }}</p>
+    <p><strong>Balans:</strong> {{ user.profile.balance }} USDT</p>
+    <p><strong>Taklif havolasi:</strong> galaxy-uz.com/ref/{{ user.username }}</p>
+</div>
+{% endblock %}

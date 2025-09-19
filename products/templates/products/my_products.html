@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Mening mahsulotlarim</h2>
+<ul>
+  {% for p in my_products %}
+    <li>
+      {{ p.product.name }} | Tugash vaqti: {{ p.expiry_date|date:"Y-m-d" }}
+    </li>
+  {% empty %}
+    <li>Sizda hali mahsulot yo‘q.</li>
+  {% endfor %}
+</ul>
+{% endblock %}

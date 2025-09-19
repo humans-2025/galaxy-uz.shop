@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>VIP Mahsulotlar</h2>
+
+<h3>Faol VIPlar</h3>
+<ul>
+    {% for product in active_products %}
+        <li>
+            <strong>{{ product.name }}</strong> — ${{ product.price }}  
+            <br>Kunlik daromad: {{ product.daily_profit }}$
+            <form method="post" action="{% url 'buy_product' product.id %}">
+                {% csrf_token %}
+                <button type="submit">Sotib olish</button>
+            </form>
+        </li>
+    {% empty %}
+        <p>Hozircha faol VIP yo‘q.</p>
+    {% endfor %}
+</ul>
+
+<h3>Tez orada keladigan VIPlar</h3>
+<ul>
+    {% for product in upcoming_products %}
+        <li>
+            <strong>{{ product.name }}</strong> — ${{ product.price }}  
+            <br><em>⏳ Tez orada</em>
+        </li>
+    {% empty %}
+        <p>Tez orada hech narsa yo‘q.</p>
+    {% endfor %}
+</ul>
+{% endblock %}

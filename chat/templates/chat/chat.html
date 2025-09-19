@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Mijozlarga xizmat ko‘rsatish (Live Chat)</h2>
+
+<div style="border:1px solid #ccc; padding:10px; height:300px; overflow-y:scroll;">
+  {% for msg in messages %}
+    {% if msg.sender == request.user %}
+      <p style="text-align:right;"><b>Siz:</b> {{ msg.text }} <small>{{ msg.created_at|time:"H:i" }}</small></p>
+    {% else %}
+      <p style="text-align:left;"><b>Admin:</b> {{ msg.text }} <small>{{ msg.created_at|time:"H:i" }}</small></p>
+    {% endif %}
+  {% endfor %}
+</div>
+
+<form method="post">
+  {% csrf_token %}
+  <textarea name="text" rows="2" style="width:100%;" placeholder="Xabaringizni yozing..."></textarea>
+  <button type="submit">Yuborish</button>
+</form>
+{% endblock %}

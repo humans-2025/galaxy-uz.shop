@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Depozitlarim</h2>
+<ul>
+  {% for d in deposits %}
+    <li>{{ d.amount }} $ - {{ d.status }} ({{ d.created_at }})</li>
+  {% empty %}
+    <li>Depozitlar yo‘q</li>
+  {% endfor %}
+</ul>
+{% endblock %}

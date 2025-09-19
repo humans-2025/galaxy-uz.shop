@@ -1,0 +1,38 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galaxy-Uz</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body style="background-image: url('{% static "img/bg.jpg" %}'); background-size: cover;">
+
+    <!-- Header -->
+    <header class="navbar">
+        <h1 class="logo">🌌 Galaxy-Uz</h1>
+        <nav>
+            <a href="{% url 'dashboard:home' %}">🏠 Bosh sahifa</a>
+            <a href="{% url 'transactions:deposit' %}">💰 Hisobni to‘ldirish</a>
+            <a href="{% url 'transactions:withdraw' %}">📤 Pul yechish</a>
+            <a href="{% url 'products:list' %}">🛒 Mahsulotlar</a>
+            <a href="{% url 'transactions:history' %}">📜 Tarix</a>
+            <a href="{% url 'chat:chat' %}">💬 Mijozlarga xizmat</a>
+            <a href="{% url 'users:profile' %}">👤 Mening sahifam</a>
+            <a href="{% url 'users:logout' %}">🚪 Chiqish</a>
+        </nav>
+    </header>
+
+    <!-- Main content -->
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Galaxy-Uz. Barcha huquqlar himoyalangan.</p>
+    </footer>
+</body>
+</html>

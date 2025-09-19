@@ -1,0 +1,24 @@
+<!-- templates/users/register.html -->
+{% extends "base.html" %}
+{% block content %}
+<div class="auth-box">
+    <h2>Ro‘yxatdan o‘tish</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label>Ism va Familiya:</label>
+        <input type="text" name="full_name" placeholder="Ali Valiyev" required>
+
+        <label>Telefon raqam:</label>
+        <input type="text" name="username" placeholder="+998901234567" required>
+
+        <label>Parol:</label>
+        <input type="password" name="password1" placeholder="Parol" required>
+
+        <label>Parolni takrorlang:</label>
+        <input type="password" name="password2" placeholder="Parol qaytadan" required>
+
+        <button type="submit">✅ Ro‘yxatdan o‘tish</button>
+    </form>
+    <p>Hisobingiz bormi? <a href="{% url 'users:login' %}">Kirish</a></p>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Mening takliflarim</h2>
+
+<p>Sizning havolangiz:</p>
+<input type="text" value="{{ request.user.referral_link }}" readonly onclick="this.select();">
+
+<h3>Taklif qilingan foydalanuvchilar</h3>
+<ul>
+  {% for r in referrals %}
+    <li>{{ r.invited.phone }} ({{ r.created_at|date:"d.m.Y H:i" }})</li>
+  {% empty %}
+    <p>Hozircha hech kimni taklif qilmagansiz.</p>
+  {% endfor %}
+</ul>
+{% endblock %}

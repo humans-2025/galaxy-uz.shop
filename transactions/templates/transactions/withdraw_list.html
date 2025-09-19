@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Yechib olishlarim</h2>
+<ul>
+  {% for w in withdraws %}
+    <li>{{ w.amount }} $ - {{ w.status }} ({{ w.created_at }})</li>
+  {% empty %}
+    <li>Yechib olishlar yo‘q</li>
+  {% endfor %}
+</ul>
+{% endblock %}
